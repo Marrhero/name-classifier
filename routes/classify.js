@@ -2,21 +2,21 @@ const router = require('express').Router();
 const axios = require('axios');
 
 router.get('/classify', async(req, res) => {
+
     //Validate the input 
     const { name } = req.query;
-
-    //Validate the script
-    if (name === undefined || name == '') {
+  
+    if (name === undefined || name === '') {
         return res.status(400).json({
             status: 'error',
-            message: 'name parameter is required'
+            message: 'Name parameter is required'
         });
     }
 
     if (typeof name !== 'string') {
         return res.status(422).json({
             status: 'error',
-            message: 'name must be a string'
+            message: 'Name must be a string'
         });
     }
 
